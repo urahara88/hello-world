@@ -63,9 +63,9 @@ class AjaxExampleForm extends FormBase {
         'wrapper' => 'ajax-result-div',
         'event' => 'change',
         'progress' => [
-            'type' => 'throbber',
-                  'message' => NULL,
-                ],
+          'type' => 'throbber',
+          'message' => NULL,
+        ],
       ],
     ];
     $form['acordding'] = [
@@ -85,37 +85,37 @@ class AjaxExampleForm extends FormBase {
     return $form;
   }
 
-    public function checkUserEmailValidation(array $form, FormStateInterface $form_state) {
+  public function checkUserEmailValidation(array $form, FormStateInterface $form_state) {
 
-//        $ajax_response = new AjaxResponse();
-//
-//        // Check if User or email exists or not
-//        if (user_load_by_name($form_state->getValue('user_email')) || user_load_by_mail($form_state->getValue('user_email'))) {
-//            $text = 'User or Email is exists';
-//        } else {
-//            $text = 'User or Email does not exists';
-//        }
-//        $ajax_response->addCommand(new HtmlCommand('#my_ajax_result', $text));
+    // $ajax_response = new AjaxResponse();
+    // Check if User or email exists or not
+    // if (user_load_by_name($form_state->getValue('user_email')) ||
+    // user_load_by_mail($form_state->getValue('user_email'))) {
+    // $text = 'User or Email is exists';
+    // } else {
+    // $text = 'User or Email does not exists';
+    // }
+    // $ajax_response->addCommand(new HtmlCommand('#my_ajax_result', $text));
 
-        $var=$form_state->getValue('dropdown');
-        debug($var,null,false);
-        //return $ajax_response;
-        $form['acordding']['ajax_result']['#value']='Op:'.$this->getSubOptions()[$var][0];
-        $form['acordding']['ajax_result_1']['#value']='Op:'.$this->getSubOptions()[$var][1];
-        //debug($form['ajax_result'],null,false);
-        return $form['acordding'];
-    }
+    $var = form_state->getValue('dropdown');
+    debug($var, NULL, FALSE);
+    // return $ajax_response;
+    $form['acordding']['ajax_result']['#value'] = 'Op:'.$this->getSubOptions()[$var][0];
+    $form['acordding']['ajax_result_1']['#value'] = 'Op:'.$this->getSubOptions()[$var][1];
+    // debug($form['ajax_result'],null,false);
+    return $form['acordding'];
+  }
 
-    /**
-     * Form submission handler.
-     *
-     * @param array $form
-     *   An associative array containing the structure of the form.
-     * @param \Drupal\Core\Form\FormStateInterface $form_state
-     *   The current state of the form.
-     */
-    public function submitForm(array &$form, FormStateInterface $form_state)
-    {
-        // TODO: Implement submitForm() method.
-    }
+  /**
+   * Form submission handler.
+   *
+   * @param array $form
+   *   An associative array containing the structure of the form.
+   * @param \Drupal\Core\Form\FormStateInterface $form_state
+   *   The current state of the form.
+   */
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    // TODO: Implement submitForm() method.
+  }
+
 }
