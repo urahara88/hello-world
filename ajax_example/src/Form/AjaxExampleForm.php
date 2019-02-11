@@ -38,18 +38,16 @@ class AjaxExampleForm extends FormBase {
   }
 
   /**
-  * {@inheritdoc}
-  */
-    public function getSubOptions()
-    {
-        return array(
-
-            '1'=> array('SubOptions11','SubOptions12','SubOptions13'),
-            '2'=> array('SubOptions21','SubOptions22','SubOptions23'),
-            '3'=> array('SubOptions31','SubOptions32','SubOptions33'),
-            '4'=> array('SubOptions41','SubOptions42','SubOptions43'),
-        );
-    }
+   * {@inheritdoc}
+   */
+  public function getSubOptions() {
+    return [
+      '1' => ['SubOptions11', 'SubOptions12', 'SubOptions13'],
+      '2' => ['SubOptions21', 'SubOptions22', 'SubOptions23'],
+      '3' => ['SubOptions31', 'SubOptions32', 'SubOptions33'],
+      '4' => ['SubOptions41', 'SubOptions42', 'SubOptions43'],
+    ];
+  }
     public function buildForm(array $form, FormStateInterface $form_state)
     {
         $form['dropdown'] = array(
