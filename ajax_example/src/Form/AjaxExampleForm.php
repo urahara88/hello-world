@@ -13,8 +13,10 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\HtmlCommand;
 
-class AjaxExampleForm extends FormBase
-{
+/**
+ * Class DefaultController.
+ */
+class AjaxExampleForm extends FormBase {
 
     public function getFormId()
     {
