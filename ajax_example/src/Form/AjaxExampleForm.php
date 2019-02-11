@@ -18,20 +18,28 @@ use Drupal\Core\Ajax\HtmlCommand;
  */
 class AjaxExampleForm extends FormBase {
 
-    public function getFormId()
-    {
-        return 'ajax_example_form';
-    }
+  /**
+  * {@inheritdoc}
+  */
+  public function getFormId() {
+    return 'ajax_example_form';
+  }
 
-    public function getOptions()
-    {
-        return array(
-            '1' => 'Option 1',
-            '2' => 'Option 2',
-            '3' => 'Option 3',
-            '4' => 'Option 4',
-        );
-    }
+  /**
+   * {@inheritdoc}
+   */
+  public function getOptions() {
+    return [
+      '1' => 'Option 1',
+      '2' => 'Option 2',
+      '3' => 'Option 3',
+      '4' => 'Option 4',
+    ];
+  }
+
+  /**
+  * {@inheritdoc}
+  */
     public function getSubOptions()
     {
         return array(
