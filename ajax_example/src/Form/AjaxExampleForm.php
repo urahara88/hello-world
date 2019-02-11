@@ -19,8 +19,8 @@ use Drupal\Core\Ajax\HtmlCommand;
 class AjaxExampleForm extends FormBase {
 
   /**
-  * {@inheritdoc}
-  */
+   * {@inheritdoc}
+   */
   public function getFormId() {
     return 'ajax_example_form';
   }
@@ -48,39 +48,42 @@ class AjaxExampleForm extends FormBase {
       '4' => ['SubOptions41', 'SubOptions42', 'SubOptions43'],
     ];
   }
-    public function buildForm(array $form, FormStateInterface $form_state)
-    {
-        $form['dropdown'] = array(
-            '#type' => 'select',
-            '#title' => 'Select one..',
-            '#options' =>$this->getOptions(),
-            '#ajax' => array(
-                'callback' => '::checkUserEmailValidation',
-                'effect' => 'fade',
-                'wrapper'=> 'ajax-result-div',
-                'event' => 'change',
-                'progress' => array(
-                    'type' => 'throbber',
-                    'message' => NULL,
-                ),
-            ),
-        );
-        $form['acordding']=array(
-            '#type'   => 'details',
-            '#prefix' => '<div id="ajax-result-div">',
-            '#suffix' => '</div>',
-            '#open'   => TRUE,
-        );
-        $form['acordding']['ajax_result']= array(
-            '#type' => 'textfield',
-            '#title' => 'Ajax Response'
-        );
-        $form['acordding']['ajax_result_1']= array(
-            '#type' => 'textfield',
-            '#title' => 'Ajax Response'
-        );
-        return $form;
-    }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function buildForm(array $form, FormStateInterface $form_state) {
+    $form['dropdown'] = [
+      '#type' => 'select',
+      '#title' => 'Select one..',
+      '#options' => $this->getOptions(),
+      '#ajax' => [
+        'callback' => '::checkUserEmailValidation',
+        'effect' => 'fade',
+        'wrapper' => 'ajax-result-div',
+        'event' => 'change',
+        'progress' => [
+            'type' => 'throbber',
+                  'message' => NULL,
+                ],
+      ],
+    ];
+    $form['acordding'] = [
+      '#type'   => 'details',
+      '#prefix' => '<div id="ajax-result-div">',
+      '#suffix' => '</div>',
+      '#open'   => TRUE,
+    ];
+    $form['acordding']['ajax_result'] = [
+      '#type' => 'textfield',
+      '#title' => 'Ajax Response',
+    ];
+    $form['acordding']['ajax_result_1'] = [
+      '#type' => 'textfield',
+      '#title' => 'Ajax Response',
+    ];
+    return $form;
+  }
 
     public function checkUserEmailValidation(array $form, FormStateInterface $form_state) {
 
